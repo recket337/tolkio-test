@@ -1,0 +1,1 @@
+export const AUTH_FORM_ID = 'authForm';

@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import { RootState } from '../store'
-import { FormDataT, setFormDataPayloadActionType } from './types'
+import { FormDataT, SetFormDataPayloadAction } from './types'
 
 type FormStorageState = Record<string, FormDataT>
   
@@ -11,7 +10,7 @@ export const formStorageSlice = createSlice({
     name: 'formStorage',
     initialState,
     reducers: {
-      setFormData: (state, action: PayloadAction<setFormDataPayloadActionType>) => {
+      setFormData: (state, action: PayloadAction<SetFormDataPayloadAction>) => {
         state[action.payload.id] = action.payload.data;
       },
     },

@@ -1,4 +1,4 @@
-export interface FormMakerPropsType {
+export interface FormMakerProps {
     label?: string;
     config: FieldParams[];
     id: string;

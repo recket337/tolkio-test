@@ -1,6 +1,6 @@
 export type FormDataT = Record<string, string>
 
-export interface setFormDataPayloadActionType{
+export interface SetFormDataPayloadAction{
     id: string,
     data: FormDataT,
 }

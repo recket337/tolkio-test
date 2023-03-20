@@ -1,60 +1,50 @@
-import React, { useEffect, useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { setFormData } from "../../slices/formStorageSlice";
-import { FormMakerPropsType, InputTypes } from "./types";
+import { FormMakerProps, InputTypes } from "./types";
 import { getInitialState } from "./utils";
 
-export const FormMaker = ({ label, config, id }: FormMakerPropsType) => {
-  const [values, setValues] = useState<Record<string, string>>({});
-
+export const FormMaker = ({ label, config, id }: FormMakerProps) => {
   const formData = useAppSelector((state) => state.formStorage[id]);
 
   const dispatch = useAppDispatch();
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValues((prev) => ({
-      ...prev,
-      [e.target.id]: e.target.value,
-    }));
-  };
-
-  useEffect(() => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     dispatch(
       setFormData({
         id,
-        data: values,
+        data: {
+          ...formData,
+          [e.target.id]: e.target.value,
+        },
       })
     );
-  }, [dispatch, id, values]);
 
   useEffect(() => {
     const initialValue = getInitialState(config);
-    setValues(initialValue);
     dispatch(
       setFormData({
         id,
         data: initialValue,
       })
     );
-  }, [config, dispatch, id]);
-
-  useEffect(() => {
-    console.log("redux", formData);
-  }, [formData]);
+  }, []);
 
   return (
     <form className="form" id={id}>
       {label && <h3 className="form-label">{label}</h3>}
       {config.map((item) => {
         return (
-          <div className="inputField">
+          <div className="inputField" key={item.id}>
             <label htmlFor={item.id}>{item.label}</label>
             <input
               type={InputTypes[item.type]}
               id={item.id}
               onChange={handleChange}
-              value={values[item.id]}
+              value={formData?.[item.id] ?? ""} // could be loader for single input
               required={item.required}
+              className='styled-input'
             />
           </div>
         );

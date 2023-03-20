@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/tolkio-test/static/css/main.5fb95016.css",
+    "main.js": "/tolkio-test/static/js/main.d5884096.js",
+    "index.html": "/tolkio-test/index.html",
+    "main.5fb95016.css.map": "/tolkio-test/static/css/main.5fb95016.css.map",
+    "main.d5884096.js.map": "/tolkio-test/static/js/main.d5884096.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5fb95016.css",
+    "static/js/main.d5884096.js"
+  ]
+}

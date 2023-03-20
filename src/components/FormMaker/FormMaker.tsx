@@ -7,7 +7,7 @@ import { getInitialState } from "./utils";
 export const FormMaker = ({ label, config, id }: FormMakerPropsType) => {
   const [values, setValues] = useState<Record<string, string>>({});
 
-  const authFormData = useAppSelector((state) => state.formStorage[id]);
+  const formData = useAppSelector((state) => state.formStorage[id]);
 
   const dispatch = useAppDispatch();
 
@@ -39,8 +39,8 @@ export const FormMaker = ({ label, config, id }: FormMakerPropsType) => {
   }, [config, dispatch, id]);
 
   useEffect(() => {
-    console.log("redux", authFormData);
-  }, [authFormData]);
+    console.log("redux", formData);
+  }, [formData]);
 
   return (
     <form className="form" id={id}>

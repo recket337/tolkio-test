@@ -1,6 +1,7 @@
 export interface FormMakerPropsType {
-    config: FieldParams[],
-    id: string,
+    label?: string;
+    config: FieldParams[];
+    id: string;
 }
 
 export enum InputTypes {
@@ -10,9 +11,9 @@ export enum InputTypes {
 }
 
 export interface FieldParams {
-    defaultValue?: string,
-    required?: boolean,
-    id: string,
-    type: keyof typeof InputTypes,
-    label: string,
+    defaultValue?: string;
+    required?: boolean;
+    id: string;
+    type: keyof typeof InputTypes;
+    label: string;
 }

@@ -1,26 +1,26 @@
-import { InputTypes } from "./components/FormMaker/types";
+import { FieldParams } from "./components/FormMaker/types";
 
-export const exampleConfig = [
+export const exampleConfig: FieldParams[] = [
   {
     id: "first_name",
-    type: "inputText" as keyof typeof InputTypes,
+    type: "inputText",
     label: "First Name",
     defaultValue: "Some first name",
   },
   {
     id: "last_name",
-    type: "inputText" as keyof typeof InputTypes,
+    type: "inputText",
     label: "Last Name",
   },
   {
     id: "email",
-    type: "inputEmail" as keyof typeof InputTypes,
+    type: "inputEmail",
     label: "Email",
     required: true,
   },
   {
     id: "password",
-    type: "inputPassword" as keyof typeof InputTypes,
+    type: "inputPassword",
     label: "Password",
     required: true,
   },
